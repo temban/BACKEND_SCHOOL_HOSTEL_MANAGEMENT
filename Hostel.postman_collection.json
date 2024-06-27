@@ -1,0 +1,738 @@
+{
+	"info": {
+		"_postman_id": "114d9682-0189-4de5-8da9-60a2f2629143",
+		"name": "Hostel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30871413"
+	},
+	"item": [
+		{
+			"name": "admin user",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "bl@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8200/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"bl@gmail.com\",\r\n    \"username\":\"Blaise Ayim\",\r\n    \"password\": \"12345\",\r\n    \"phone\": \"+237 567656456\",\r\n    \"role\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "school",
+			"item": [
+				{
+					"name": "Create School",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Example School\",\r\n    \"location\": \"123 Main Street\",\r\n    \"user_id\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/schools/?name=ABC COLLEGE&location=YAOUNDE&user_id=1&state=CENTER&country=CAMEROON&matricule=CMR343EDCJNFJCK&city=YAOUNDE",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"schools",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ABC COLLEGE"
+								},
+								{
+									"key": "location",
+									"value": "YAOUNDE"
+								},
+								{
+									"key": "user_id",
+									"value": "1"
+								},
+								{
+									"key": "state",
+									"value": "CENTER"
+								},
+								{
+									"key": "country",
+									"value": "CAMEROON"
+								},
+								{
+									"key": "matricule",
+									"value": "CMR343EDCJNFJCK"
+								},
+								{
+									"key": "city",
+									"value": "YAOUNDE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a school",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/get/schools/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"get",
+								"schools",
+								"6"
+							],
+							"query": [
+								{
+									"key": "school_id",
+									"value": "4",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "school update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/update/schools/5?name=ABC Ngousso&location=YAOUNDE1&state=CENTER 1&country=CAMEROONnn 1&matricule=CMR343EDCJNFJCK 1&city=YAOUNDE1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"update",
+								"schools",
+								"5"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "ABC Ngousso"
+								},
+								{
+									"key": "location",
+									"value": "YAOUNDE1"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "state",
+									"value": "CENTER 1"
+								},
+								{
+									"key": "country",
+									"value": "CAMEROONnn 1"
+								},
+								{
+									"key": "matricule",
+									"value": "CMR343EDCJNFJCK 1"
+								},
+								{
+									"key": "city",
+									"value": "YAOUNDE1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete school",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/delete/schools/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"delete",
+								"schools",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get schools by user id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/schools/by_user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"schools",
+								"by_user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "manager",
+			"item": [
+				{
+					"name": "create manager",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"m1@gmail.com\",\r\n    \"name\":\"Eugene\",\r\n    \"password\": \"12345\",\r\n    \"phone\": \"+237 567656456\",\r\n    \"school_id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/managers/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"managers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get manager by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/get/manager/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"get",
+								"manager",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get managers by_school",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/managers/by_school/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"managers",
+								"by_school",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update manager by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"m455555@gmail.com\",\r\n    \"name\":\"joe 5555555555555\",\r\n    \"phone\": \"+237 340000000000000\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/update/manager/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"update",
+								"manager",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "manager login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"m4@gmail.com\",\r\n    \"password\": \"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/manager/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"manager",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "manager new password by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"qwerty13\",\r\n    \"confirm_password\": \"qwerty123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/manager/new/password/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"manager",
+								"new",
+								"password",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete manager by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/delete/managers/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"delete",
+								"managers",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dom",
+			"item": [
+				{
+					"name": "create dom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"building 2\",\r\n    \"manager_id\": 7\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/create/dom/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"create",
+								"dom",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get dom by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/get/dom/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"get",
+								"dom",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get doms by_manager id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/doms/by_manager/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"doms",
+								"by_manager",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update dom by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"qwerty13\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/update/dom/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"update",
+								"dom",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete dom by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/delete/dom/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"delete",
+								"dom",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "students",
+			"item": [
+				{
+					"name": "create student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"je ttttttt\",\r\n    \"class_room\":\"class 2\",\r\n    \"matricule\":\"bcl2-rrrrrr\",\r\n    \"dom_id\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/create/student/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"create",
+								"student",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get student by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/get/student/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"get",
+								"student",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get students by_dom id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/get/students/by_dom/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"get",
+								"students",
+								"by_dom",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update student by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"je ttttttt\",\r\n    \"class_room\":\"class 2\",\r\n    \"matricule\":\"bcl2-rrrrrr\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8200/update/student/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"update",
+								"student",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete student by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8200/delete/student/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"delete",
+								"student",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload students excel to dom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Odoo/Hostel_Management/CLASS-LIST.xls"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8200/students/upload/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8200",
+							"path": [
+								"students",
+								"upload",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
